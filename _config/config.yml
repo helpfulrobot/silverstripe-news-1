@@ -1,0 +1,13 @@
+---
+Name: news
+After: 
+  - 'tweaks'
+---
+Page_Controller:
+  extensions:
+    - NewsPageControllerExtension
+NewsHolder:
+  extensions:
+    - Lumberjack
+NewsPage:
+  show_in_sitetree: false

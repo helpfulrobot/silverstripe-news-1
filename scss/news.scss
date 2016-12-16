@@ -1,0 +1,223 @@
+@import 'compass/css3';
+@import 'susy';
+@import '../../mysite/scss/vendor/_fontawesome-variables';
+@import '../../mysite/scss/_mixins';
+@import '../../mysite/scss/_variables';
+@import '../../mysite/scss/_extends';
+
+@include layout($default-grid);
+@import "latestnews";
+
+// - Overview
+#page__main.page__main--has-sidebar {
+  .newsoverview__news {
+    .news__img {
+      @include span(3 of 9);
+    }
+
+    .news__info {
+      @include span(6 of 9 last);
+    }
+  }
+}
+
+#page__main:not(.page__main--has-sidebar) {
+  .newsoverview__news {
+    .news__img {
+      @include span(4 of 12);
+    }
+
+    .news__info {
+      @include span(8 of 12 last);
+    }
+  }
+}
+
+.newsoverview__news {
+  margin-bottom: $dist;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .news__img {
+    @include img-hover($fa-long-arrow-right, $ac, left);
+
+    img {
+      @include resp-img(); 
+    }
+  }
+
+  .news__info {
+    h2 {
+      margin-bottom: $dist/2;
+
+      a {
+        text-decoration: none;
+        color: $fc;
+
+        i {
+          margin-left: 0.25em;
+        }
+
+        &:hover {
+          color: $ac;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+#page__main.page__main--has-sidebar,
+#page__main:not(.page__main--has-sidebar) {
+  .newsoverview__news {
+    @include breakpoint(null, $bp-s) {
+
+      .news__img {
+        @include span(full);
+        margin-bottom: $dist/2;
+      }
+
+      .news__info {
+        @include span(full);
+      }
+    }
+  }
+}
+
+// - Detail
+body#newspage {
+  $grid-conf: (
+    (null, $bp-s, 2),
+    ($bp-s, $bp-m, 3),
+    ($bp-m, null, 4)
+  );
+
+  .page__text {
+    margin-bottom: 0;
+  }
+
+  .page__images {
+    margin-top: $dist;
+    
+    @include breakpoint(null, $bp-s)  {
+      margin-top: $dist/2;
+    }
+
+    a {
+      @include resp-gallery-layout($grid-conf);
+      @include img-hover();
+
+      img {
+        @include resp-img();
+      }
+    }
+  }
+
+  .page__files {
+    list-style: none;
+    margin: 0;
+    margin-top: $dist;
+    
+    @include breakpoint(null, $bp-s)  {
+      margin-top: $dist/2;
+    }
+
+    li {
+      margin-top: $dist/3;
+      padding: $dist/3;
+      background: $box-color;
+      @include border-radius($border-radius);
+
+      @include breakpoint(null, $bp-s) {
+        @include span(full);
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+
+      @include breakpoint($bp-s, null) {
+        @include span(6 of 12);
+
+        &:nth-of-type(-n+2) {
+          margin-top: 0;
+        }
+
+        &:nth-of-type(2n+2) {
+          margin-right: 0;
+        }
+
+        &:nth-of-type(2n+3) {
+          clear: both;
+        }
+      }
+
+      i {
+        display: block;
+        float: left;
+        font-size: $fs-medium;
+        line-height: $line-height-int + rem;
+      }
+
+      span {
+        display: block;
+        float: left;
+        padding-left: $dist/3;
+        width: calc(100% - #{$fs-medium});
+
+        a {
+          color: $fc;
+          text-decoration: none;
+
+          &:hover {
+            color: $ac;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  main.page__main--has-sidebar {
+    $grid-conf: (
+      (null, $bp-s, 2, 1, 9),
+      ($bp-s, $bp-m, 3, 1, 9),
+      ($bp-m, null, 4, 1, 9)
+    );
+
+    .page__images {
+      margin-top: $dist;
+      
+      a {
+        @include resp-gallery-layout($grid-conf);
+      }
+    }
+
+    .page__files {
+      li {
+        @include breakpoint($bp-m, null) {
+          width: 50% - gutter(9)/2;
+          margin-right: gutter(9);
+
+          &:nth-of-type(2n+2) {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .page__text,
+  .page__images,
+  .page__files {
+    & + .sections-wrapper {
+      margin-top: $dist;
+
+      @include breakpoint(null, $bp-s) {
+        margin-top: $dist/2;
+      }
+    }
+  }
+}
