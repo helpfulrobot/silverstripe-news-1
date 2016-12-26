@@ -127,7 +127,7 @@ class NewsHolder_Controller extends Page_Controller {
   public function index(SS_HTTPRequest $request) {
     $data = [];
 
-    $news = $this->Children()->sort('Created DESC');
+    $news = $this->LatestNews(0);
     $pagination = PaginatedList::create(
         $news,
         $request
@@ -135,6 +135,8 @@ class NewsHolder_Controller extends Page_Controller {
      ->setPaginationGetVar('s');
 
     $data['SortedNews'] = $pagination;
+
+    $data['NewsCacheKey'] = '';
     
     if($news->first()) {
       $data['NewsCacheKey'] = max($pagination->getList()->column('LastEdited'));
@@ -143,7 +145,7 @@ class NewsHolder_Controller extends Page_Controller {
     if($request->isAjax()) {
       return $this->customise([
         'SortedNews' => $pagination,
-        'NewsCacheKey' => $news->count() . '_' . max($pagination->getList()->column('LastEdited'))
+        'NewsCacheKey' => $news->count() . '_' . $data['NewsCacheKey']
       ])->renderWith('NewsArticles');
     }
 
@@ -151,11 +153,17 @@ class NewsHolder_Controller extends Page_Controller {
   }
 
   public function LatestNews($num = 3) {
-    return $this->Children()->sort('Created DESC')->limit($num);
+    return NewsPage::get()
+      ->filter([
+        'Created:LessThanOrEqual' => date('Y-m-d H:i:s'),
+        'ID' => $this->Children()->column('ID')
+      ])
+      ->sort('Created DESC')
+      ->limit($num);
   }
 
   public function NewsCacheKey() {
-    $count = $this->Children()->count();
+    $count = $this->LatestNews(0)->count();
     if($count) {
       $edited = max($this->Children()->column('LastEdited'));
     } else {
@@ -163,5 +171,12 @@ class NewsHolder_Controller extends Page_Controller {
     }
 
     return $count . '_' . $edited;
+  }
+
+  public function Highlight() {
+    return $this->Children()
+      ->filter('Highlighted', true)
+      ->sort('Created DESC')
+      ->first();
   }
 }

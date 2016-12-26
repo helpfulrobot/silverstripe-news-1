@@ -8,7 +8,9 @@ class NewsPage extends Page {
   private static $default_child = '';
   // private static $icon = 'mysite/imgs/icons/PageIcon.png';
 
-  private static $db = [];
+  private static $db = [
+    'Highlighted' => 'Boolean'
+  ];
 
   private static $has_one = [
     'Image' => 'Image'
@@ -131,11 +133,21 @@ class NewsPage extends Page {
 
   public function getCMSFields() {
     $fields = parent::getCMSFields();
+
+    $fields->insertAfter(
+      DateField::create('Created', 'Veröffentlichungsdatum')
+    , 'MenuTitle');
+
+    $fields->insertAfter(
+      DropdownField::create('Highlighted', 'Hervorgehoben', [1 => 'Ja', 0 => 'Nein'], 0)
+        ->setRightTitle('Soll der Beitrag auf der Startseite dargestellt werden?')
+    , 'Created');
+
     $fields->insertAfter(
       UploadField::create('Image', 'Vorschaubild')
         ->setFolderName('news')
         ->setDisplayFolderName('news')
-    , 'MenuTitle');
+    , 'Highlighted');
 
     $fields->insertAfter(Tab::create('Medien'), 'Main');
     $fields->addFieldsToTab('Root.Medien', [
