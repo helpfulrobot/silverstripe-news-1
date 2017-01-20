@@ -49,8 +49,6 @@ class NewsPage extends Page {
 
   public function onAfterWrite() {
     parent::onAfterWrite();
-
-    $this->updateStaticCache();
   }
 
   public function onBeforeDelete() {
@@ -59,36 +57,6 @@ class NewsPage extends Page {
 
   public function onAfterDelete() {
     parent::onAfterDelete();
-
-    $this->updateStaticCache(true);
-  }
-
-
-  public function updateStaticCache($delete = false) {
-    if(class_exists('URLArrayObject')) {
-      $changedFields = $this->owner->getChangedFields(true, 2);
-      unset($changedFields['WriteCount']);
-      unset($changedFields['Version']);
-
-      if(count($changedFields) || $delete) {
-        $changedFields = $this->owner->getChangedFields(true, 2);
-        $urlObject = new URLArrayObject();
-        $urlObject->addUrls($this->dependentCachePages());
-      }
-    }
-  }
-
-  public function dependentCachePages() {
-    // Seiten auf der gleichen Ebene sowie die Überseite werden automatisch aktualisiert
-    // Dient dafür anderen Seiten zu aktualisieren auf deren Content dieser Seiten blockweise ausgegeben wird
-    // Beispielsweise Top Leistungen, Neuest Nachrichten, ... auf der Startseite
-
-    $urls = [];
-
-    // Latest News Block
-    $urls[SiteTree::get_by_link(RootURLController::get_homepage_link())->Link()] = 90;
-
-    return $urls;
   }
 
 
