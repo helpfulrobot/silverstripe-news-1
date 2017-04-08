@@ -1,15 +1,14 @@
-@import 'compass/css3';
-@import 'susy';
-@import '../../mysite/scss/vendor/_fontawesome-variables';
-@import '../../mysite/scss/_mixins';
-@import '../../mysite/scss/_variables';
-@import '../../mysite/scss/_extends';
+@import 'extras/_mixins';
+@import 'extras/_variables';
+@import 'extras/_extends';
+@import "../bower/susy/sass/_susy.scss";
+@import "../bower/font-awesome/_variables.scss";
 
 @include layout($default-grid);
 @import "latestnews";
 
 // - Overview
-#page__main.page__main--has-sidebar {
+.page__main.page__main--has-sidebar {
   .newsoverview__news {
     .news__img {
       @include span(3 of 9);
@@ -21,7 +20,7 @@
   }
 }
 
-#page__main:not(.page__main--has-sidebar) {
+.page__main:not(.page__main--has-sidebar) {
   .newsoverview__news {
     .news__img {
       @include span(4 of 12);
@@ -41,7 +40,7 @@
   }
 
   .news__img {
-    @include img-hover($fa-long-arrow-right, $ac, left);
+    @include img-hover($fa-var-angle-right, $ac, left);
 
     img {
       @include resp-img(); 
@@ -69,8 +68,8 @@
   }
 }
 
-#page__main.page__main--has-sidebar,
-#page__main:not(.page__main--has-sidebar) {
+.page__main.page__main--has-sidebar,
+.page__main:not(.page__main--has-sidebar) {
   .newsoverview__news {
     @include breakpoint(null, $bp-s) {
 
@@ -128,7 +127,7 @@ body#newspage {
       margin-top: $dist/3;
       padding: $dist/3;
       background: $box-color;
-      @include border-radius($border-radius);
+      border-radius: $border-radius;
 
       @include breakpoint(null, $bp-s) {
         @include span(full);
@@ -220,4 +219,72 @@ body#newspage {
       }
     }
   }
+}
+
+// - laoder
+.loader {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  background: rgba(#ffffff, 0.8);
+
+  .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -20px 0 0 -25px;
+    display: block !important;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px;
+
+    & > div {
+      display: inline-block;
+      height: 100%;
+      width: 4px;
+      background: $hc;
+      -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+      animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    }
+
+    .rect2 {
+      -webkit-animation-delay: -1.1s;
+      animation-delay: -1.1s;
+    }
+
+    .rect3 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+
+    .rect4 {
+      -webkit-animation-delay: -0.9s;
+      animation-delay: -0.9s;
+    }
+
+    .rect5 {
+      -webkit-animation-delay: -0.8s;
+      animation-delay: -0.8s;
+    }
+  }
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+       transform: scaleY(1.0);
+       -webkit-transform: scaleY(1.0);
+     }
 }

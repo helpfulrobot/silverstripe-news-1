@@ -1,4 +1,4 @@
-<% with $PageByID($NewsPageID).Controller %>
+<% with $PageByID($NewsArchivePage.ID).Controller %>
   <% cached $NewsCacheKey %>
     <% if $LatestNews %>
       <section class="latestnews cf">

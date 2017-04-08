@@ -1,0 +1,95 @@
+@function px2rem($pixel) {
+  @return $pixel / $fs-root + rem;
+}
+
+// - Größen
+$max-width: 1200px;
+$column-width: 67px;
+$gutter-width: 36px;
+$dist: $gutter-width;
+$mobilenav-width: 270px;
+$border-radius: 3px;
+$duration: .2s;
+
+// - Farben
+$bc: #2E4398;
+$bc2: #BF0A0E;
+
+$fc: #292929;
+$fc-light: #B1B1B1;
+
+$hc: $bc;
+$hc-hover: darken($hc, 15%);
+$hc-light: #6C7BB7;
+
+$ac: $bc2;
+$ac-hover: darken($ac, 15%);
+$ac-sec: #dddddd;
+$ac-sec-hover: darken($ac-sec, 15%);
+
+$border-color: #D1D1D1;
+$border-color-dark: darken($border-color, 15%);
+
+$box-color: #F3F3F3;
+$box-color-dark: #E8E8E8;
+
+$shadow-color: rgba(0, 0, 0, 0.25);
+
+$valid-color: #81dd1f;
+$warning-color: #f7b514;
+$invalid-color: #dd3e1f;
+
+// - Fonts
+$ff: 'Roboto Condensed', sans-serif;
+$ff-h: $ff;
+
+$fs-root: 16px;
+$fs-small: px2rem(14px);
+$fs: px2rem(16px);
+$fs-medium: px2rem(20px);
+$fs-big: px2rem(30px);
+$fs-bigger: px2rem(48px);
+
+$fs-h1: $fs-big;
+$fs-h2: $fs-big;
+$fs-h3: $fs-medium;
+$fs-h4: px2rem(20px);
+$fs-h5: px2rem(17px);
+$fs-h6: px2rem(17px);
+
+$fw-light: 400;
+$fw: 400;
+$fw-medium: 700;
+$fw-bold: 700;
+
+$fw-h-light: 400;
+$fw-h: 400;
+$fw-h-medium: 700;
+$fw-h-bold: 700;
+
+$line-height: 1.5em;
+$line-height-int: 1.5;
+
+$bp-xs: 350px;
+$bp-s: 480px;
+$bp-m: 768px;
+$bp-l: 1036px;
+$bp-nav: 768px;
+
+// - Susy
+$default-grid: (
+  global-box-sizing: border-box,
+  columns: 12,
+  gutters: $gutter-width/$column-width,
+  math: fluid,
+  output: float,
+  last-flow: from
+);
+
+// - Responsive Tables
+$table-padding: $dist/4;
+$table-even-row-color: $box-color;
+$table-odd-row-color: #ffffff;
+$table-head-bg-color: $box-color;
+$table-head-font-color: $fc;
+$comprehension-table-head-font-color: #ffffff;

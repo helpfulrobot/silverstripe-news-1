@@ -1,39 +1,13 @@
 <?php
 class NewsPageControllerExtension extends DataExtension {
-  
-  private static $allowed_actions = [
-  ];
 
-  public function onBeforeInit() {
+  public function onAfterInit() {
     global $moduleNews;
-    // - Requirements Management CSS Files
-    $moduleCSSFiles = Session::get('SFModuleCSSFiles');
+    Requirements::javascript($moduleNews . '/js/news.js');
+    Requirements::css($moduleNews . '/css/news.css');
+  }
 
-    if(!$moduleCSSFiles) {
-      $moduleCSSFiles = [];
-    }
-
-    $requiredCSSFiles = array_flip([
-      $moduleNews . '/css/news.css',
-    ]);
-
-    $requiredCSSFiles = array_merge($moduleCSSFiles, $requiredCSSFiles);
-
-    Session::set('SFModuleCSSFiles', $requiredCSSFiles);
-
-    // - Requirements Management JS Files
-    $moduleJSFiles = Session::get('SFModuleJSFiles');
-
-    if(!$moduleJSFiles) {
-      $moduleJSFiles = [];
-    }
-
-    $requiredJSFiles = array_flip([
-      $moduleNews . '/js/news.js',
-    ]);
-
-    $requiredJSFiles = array_merge($moduleJSFiles, $requiredJSFiles);
-
-    Session::set('SFModuleJSFiles', $requiredJSFiles);
+  public function NewsArchivePage() {
+    return NewsHolder::get()->first();
   }
 }

@@ -1,0 +1,844 @@
+@charset "UTF-8";
+.cf {
+  *zoom: 1; }
+  .cf:before {
+    content: "";
+    display: table; }
+  .cf:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.wrapper,
+.container {
+  width: calc(100% - 36px);
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.btn {
+  display: inline-block;
+  color: #FFFFFF;
+  padding: 9px 18px;
+  background: #BF0A0E;
+  transition: all linear 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  border: 0; }
+  .btn:hover {
+    background: #760609; }
+  .btn:focus {
+    outline: none;
+    border: none; }
+
+.btn--small {
+  font-size: 0.875rem; }
+
+.btn--white {
+  background: #FFFFFF;
+  color: #292929; }
+  .btn--white:hover {
+    color: #FFFFFF; }
+
+.btn--neutral {
+  background: #F3F3F3;
+  color: #292929; }
+  .btn--neutral:hover {
+    color: #FFFFFF; }
+
+.formatted-text > *:first-child,
+[class*="__text"] > *:first-child {
+  margin-top: 0 !important; }
+
+.formatted-text > *:last-child,
+[class*="__text"] > *:last-child {
+  margin-bottom: 0; }
+
+.formatted-text p,
+[class*="__text"] p {
+  margin-top: 1em; }
+  .formatted-text p > *:first-child,
+  [class*="__text"] p > *:first-child {
+    margin-top: 0 !important; }
+  .formatted-text p .btn,
+  [class*="__text"] p .btn {
+    margin-top: 1em; }
+  .formatted-text p + ul,
+  [class*="__text"] p + ul, .formatted-text p + ol,
+  [class*="__text"] p + ol, .formatted-text p + h1,
+  [class*="__text"] p + h1, .formatted-text p + h2,
+  [class*="__text"] p + h2, .formatted-text p + h3,
+  [class*="__text"] p + h3, .formatted-text p + h4,
+  [class*="__text"] p + h4, .formatted-text p + h5,
+  [class*="__text"] p + h5, .formatted-text p + h6,
+  [class*="__text"] p + h6, .formatted-text p + table,
+  [class*="__text"] p + table, .formatted-text p + div,
+  [class*="__text"] p + div, .formatted-text p + blockquote,
+  [class*="__text"] p + blockquote {
+    margin-top: 1em; }
+
+.formatted-text blockquote,
+[class*="__text"] blockquote {
+  margin-top: 1em; }
+  .formatted-text blockquote > *:first-child,
+  [class*="__text"] blockquote > *:first-child {
+    margin-top: 0 !important; }
+  .formatted-text blockquote + ul,
+  [class*="__text"] blockquote + ul, .formatted-text blockquote + ol,
+  [class*="__text"] blockquote + ol, .formatted-text blockquote + h1,
+  [class*="__text"] blockquote + h1, .formatted-text blockquote + h2,
+  [class*="__text"] blockquote + h2, .formatted-text blockquote + h3,
+  [class*="__text"] blockquote + h3, .formatted-text blockquote + h4,
+  [class*="__text"] blockquote + h4, .formatted-text blockquote + h5,
+  [class*="__text"] blockquote + h5, .formatted-text blockquote + h6,
+  [class*="__text"] blockquote + h6, .formatted-text blockquote + table,
+  [class*="__text"] blockquote + table, .formatted-text blockquote + div,
+  [class*="__text"] blockquote + div, .formatted-text blockquote + p,
+  [class*="__text"] blockquote + p {
+    margin-top: 1em; }
+
+.formatted-text h1 + h1 .formatted-text h1 + h2,
+[class*="__text"] h1 + h1 .formatted-text h1 + h2, .formatted-text h1 + h1
+[class*="__text"] h1 + h2,
+[class*="__text"] h1 + h1
+[class*="__text"] h1 + h2, .formatted-text h1 + h3,
+[class*="__text"] h1 + h3, .formatted-text h1 + h4,
+[class*="__text"] h1 + h4, .formatted-text h1 + h5,
+[class*="__text"] h1 + h5, .formatted-text h1 + h6,
+[class*="__text"] h1 + h6, .formatted-text h1 + p,
+[class*="__text"] h1 + p, .formatted-text h1 + ul,
+[class*="__text"] h1 + ul, .formatted-text h1 + ol,
+[class*="__text"] h1 + ol, .formatted-text h1 + table,
+[class*="__text"] h1 + table, .formatted-text h1 + div,
+[class*="__text"] h1 + div, .formatted-text h1 + blockquote,
+[class*="__text"] h1 + blockquote, .formatted-text h2 + h1 .formatted-text h1 + h2,
+[class*="__text"] h2 + h1 .formatted-text h1 + h2, .formatted-text h2 + h1
+[class*="__text"] h1 + h2,
+[class*="__text"] h2 + h1
+[class*="__text"] h1 + h2, .formatted-text h2 + h3,
+[class*="__text"] h2 + h3, .formatted-text h2 + h4,
+[class*="__text"] h2 + h4, .formatted-text h2 + h5,
+[class*="__text"] h2 + h5, .formatted-text h2 + h6,
+[class*="__text"] h2 + h6, .formatted-text h2 + p,
+[class*="__text"] h2 + p, .formatted-text h2 + ul,
+[class*="__text"] h2 + ul, .formatted-text h2 + ol,
+[class*="__text"] h2 + ol, .formatted-text h2 + table,
+[class*="__text"] h2 + table, .formatted-text h2 + div,
+[class*="__text"] h2 + div, .formatted-text h2 + blockquote,
+[class*="__text"] h2 + blockquote, .formatted-text h3 + h1 .formatted-text h1 + h2,
+[class*="__text"] h3 + h1 .formatted-text h1 + h2, .formatted-text h3 + h1
+[class*="__text"] h1 + h2,
+[class*="__text"] h3 + h1
+[class*="__text"] h1 + h2, .formatted-text h3 + h3,
+[class*="__text"] h3 + h3, .formatted-text h3 + h4,
+[class*="__text"] h3 + h4, .formatted-text h3 + h5,
+[class*="__text"] h3 + h5, .formatted-text h3 + h6,
+[class*="__text"] h3 + h6, .formatted-text h3 + p,
+[class*="__text"] h3 + p, .formatted-text h3 + ul,
+[class*="__text"] h3 + ul, .formatted-text h3 + ol,
+[class*="__text"] h3 + ol, .formatted-text h3 + table,
+[class*="__text"] h3 + table, .formatted-text h3 + div,
+[class*="__text"] h3 + div, .formatted-text h3 + blockquote,
+[class*="__text"] h3 + blockquote, .formatted-text h4 + h1 .formatted-text h1 + h2,
+[class*="__text"] h4 + h1 .formatted-text h1 + h2, .formatted-text h4 + h1
+[class*="__text"] h1 + h2,
+[class*="__text"] h4 + h1
+[class*="__text"] h1 + h2, .formatted-text h4 + h3,
+[class*="__text"] h4 + h3, .formatted-text h4 + h4,
+[class*="__text"] h4 + h4, .formatted-text h4 + h5,
+[class*="__text"] h4 + h5, .formatted-text h4 + h6,
+[class*="__text"] h4 + h6, .formatted-text h4 + p,
+[class*="__text"] h4 + p, .formatted-text h4 + ul,
+[class*="__text"] h4 + ul, .formatted-text h4 + ol,
+[class*="__text"] h4 + ol, .formatted-text h4 + table,
+[class*="__text"] h4 + table, .formatted-text h4 + div,
+[class*="__text"] h4 + div, .formatted-text h4 + blockquote,
+[class*="__text"] h4 + blockquote, .formatted-text h5 + h1 .formatted-text h1 + h2,
+[class*="__text"] h5 + h1 .formatted-text h1 + h2, .formatted-text h5 + h1
+[class*="__text"] h1 + h2,
+[class*="__text"] h5 + h1
+[class*="__text"] h1 + h2, .formatted-text h5 + h3,
+[class*="__text"] h5 + h3, .formatted-text h5 + h4,
+[class*="__text"] h5 + h4, .formatted-text h5 + h5,
+[class*="__text"] h5 + h5, .formatted-text h5 + h6,
+[class*="__text"] h5 + h6, .formatted-text h5 + p,
+[class*="__text"] h5 + p, .formatted-text h5 + ul,
+[class*="__text"] h5 + ul, .formatted-text h5 + ol,
+[class*="__text"] h5 + ol, .formatted-text h5 + table,
+[class*="__text"] h5 + table, .formatted-text h5 + div,
+[class*="__text"] h5 + div, .formatted-text h5 + blockquote,
+[class*="__text"] h5 + blockquote, .formatted-text h6 + h1 .formatted-text h1 + h2,
+[class*="__text"] h6 + h1 .formatted-text h1 + h2, .formatted-text h6 + h1
+[class*="__text"] h1 + h2,
+[class*="__text"] h6 + h1
+[class*="__text"] h1 + h2, .formatted-text h6 + h3,
+[class*="__text"] h6 + h3, .formatted-text h6 + h4,
+[class*="__text"] h6 + h4, .formatted-text h6 + h5,
+[class*="__text"] h6 + h5, .formatted-text h6 + h6,
+[class*="__text"] h6 + h6, .formatted-text h6 + p,
+[class*="__text"] h6 + p, .formatted-text h6 + ul,
+[class*="__text"] h6 + ul, .formatted-text h6 + ol,
+[class*="__text"] h6 + ol, .formatted-text h6 + table,
+[class*="__text"] h6 + table, .formatted-text h6 + div,
+[class*="__text"] h6 + div, .formatted-text h6 + blockquote,
+[class*="__text"] h6 + blockquote, .formatted-text h1 + h1 .formatted-text h2 + h2,
+[class*="__text"] h1 + h1 .formatted-text h2 + h2, .formatted-text h1 + h1
+[class*="__text"] h2 + h2,
+[class*="__text"] h1 + h1
+[class*="__text"] h2 + h2, .formatted-text h2 + h1 .formatted-text h2 + h2,
+[class*="__text"] h2 + h1 .formatted-text h2 + h2, .formatted-text h2 + h1
+[class*="__text"] h2 + h2,
+[class*="__text"] h2 + h1
+[class*="__text"] h2 + h2, .formatted-text h3 + h1 .formatted-text h2 + h2,
+[class*="__text"] h3 + h1 .formatted-text h2 + h2, .formatted-text h3 + h1
+[class*="__text"] h2 + h2,
+[class*="__text"] h3 + h1
+[class*="__text"] h2 + h2, .formatted-text h4 + h1 .formatted-text h2 + h2,
+[class*="__text"] h4 + h1 .formatted-text h2 + h2, .formatted-text h4 + h1
+[class*="__text"] h2 + h2,
+[class*="__text"] h4 + h1
+[class*="__text"] h2 + h2, .formatted-text h5 + h1 .formatted-text h2 + h2,
+[class*="__text"] h5 + h1 .formatted-text h2 + h2, .formatted-text h5 + h1
+[class*="__text"] h2 + h2,
+[class*="__text"] h5 + h1
+[class*="__text"] h2 + h2, .formatted-text h6 + h1 .formatted-text h2 + h2,
+[class*="__text"] h6 + h1 .formatted-text h2 + h2, .formatted-text h6 + h1
+[class*="__text"] h2 + h2,
+[class*="__text"] h6 + h1
+[class*="__text"] h2 + h2, .formatted-text h1 + h1 .formatted-text h3 + h2,
+[class*="__text"] h1 + h1 .formatted-text h3 + h2, .formatted-text h1 + h1
+[class*="__text"] h3 + h2,
+[class*="__text"] h1 + h1
+[class*="__text"] h3 + h2, .formatted-text h2 + h1 .formatted-text h3 + h2,
+[class*="__text"] h2 + h1 .formatted-text h3 + h2, .formatted-text h2 + h1
+[class*="__text"] h3 + h2,
+[class*="__text"] h2 + h1
+[class*="__text"] h3 + h2, .formatted-text h3 + h1 .formatted-text h3 + h2,
+[class*="__text"] h3 + h1 .formatted-text h3 + h2, .formatted-text h3 + h1
+[class*="__text"] h3 + h2,
+[class*="__text"] h3 + h1
+[class*="__text"] h3 + h2, .formatted-text h4 + h1 .formatted-text h3 + h2,
+[class*="__text"] h4 + h1 .formatted-text h3 + h2, .formatted-text h4 + h1
+[class*="__text"] h3 + h2,
+[class*="__text"] h4 + h1
+[class*="__text"] h3 + h2, .formatted-text h5 + h1 .formatted-text h3 + h2,
+[class*="__text"] h5 + h1 .formatted-text h3 + h2, .formatted-text h5 + h1
+[class*="__text"] h3 + h2,
+[class*="__text"] h5 + h1
+[class*="__text"] h3 + h2, .formatted-text h6 + h1 .formatted-text h3 + h2,
+[class*="__text"] h6 + h1 .formatted-text h3 + h2, .formatted-text h6 + h1
+[class*="__text"] h3 + h2,
+[class*="__text"] h6 + h1
+[class*="__text"] h3 + h2, .formatted-text h1 + h1 .formatted-text h4 + h2,
+[class*="__text"] h1 + h1 .formatted-text h4 + h2, .formatted-text h1 + h1
+[class*="__text"] h4 + h2,
+[class*="__text"] h1 + h1
+[class*="__text"] h4 + h2, .formatted-text h2 + h1 .formatted-text h4 + h2,
+[class*="__text"] h2 + h1 .formatted-text h4 + h2, .formatted-text h2 + h1
+[class*="__text"] h4 + h2,
+[class*="__text"] h2 + h1
+[class*="__text"] h4 + h2, .formatted-text h3 + h1 .formatted-text h4 + h2,
+[class*="__text"] h3 + h1 .formatted-text h4 + h2, .formatted-text h3 + h1
+[class*="__text"] h4 + h2,
+[class*="__text"] h3 + h1
+[class*="__text"] h4 + h2, .formatted-text h4 + h1 .formatted-text h4 + h2,
+[class*="__text"] h4 + h1 .formatted-text h4 + h2, .formatted-text h4 + h1
+[class*="__text"] h4 + h2,
+[class*="__text"] h4 + h1
+[class*="__text"] h4 + h2, .formatted-text h5 + h1 .formatted-text h4 + h2,
+[class*="__text"] h5 + h1 .formatted-text h4 + h2, .formatted-text h5 + h1
+[class*="__text"] h4 + h2,
+[class*="__text"] h5 + h1
+[class*="__text"] h4 + h2, .formatted-text h6 + h1 .formatted-text h4 + h2,
+[class*="__text"] h6 + h1 .formatted-text h4 + h2, .formatted-text h6 + h1
+[class*="__text"] h4 + h2,
+[class*="__text"] h6 + h1
+[class*="__text"] h4 + h2, .formatted-text h1 + h1 .formatted-text h5 + h2,
+[class*="__text"] h1 + h1 .formatted-text h5 + h2, .formatted-text h1 + h1
+[class*="__text"] h5 + h2,
+[class*="__text"] h1 + h1
+[class*="__text"] h5 + h2, .formatted-text h2 + h1 .formatted-text h5 + h2,
+[class*="__text"] h2 + h1 .formatted-text h5 + h2, .formatted-text h2 + h1
+[class*="__text"] h5 + h2,
+[class*="__text"] h2 + h1
+[class*="__text"] h5 + h2, .formatted-text h3 + h1 .formatted-text h5 + h2,
+[class*="__text"] h3 + h1 .formatted-text h5 + h2, .formatted-text h3 + h1
+[class*="__text"] h5 + h2,
+[class*="__text"] h3 + h1
+[class*="__text"] h5 + h2, .formatted-text h4 + h1 .formatted-text h5 + h2,
+[class*="__text"] h4 + h1 .formatted-text h5 + h2, .formatted-text h4 + h1
+[class*="__text"] h5 + h2,
+[class*="__text"] h4 + h1
+[class*="__text"] h5 + h2, .formatted-text h5 + h1 .formatted-text h5 + h2,
+[class*="__text"] h5 + h1 .formatted-text h5 + h2, .formatted-text h5 + h1
+[class*="__text"] h5 + h2,
+[class*="__text"] h5 + h1
+[class*="__text"] h5 + h2, .formatted-text h6 + h1 .formatted-text h5 + h2,
+[class*="__text"] h6 + h1 .formatted-text h5 + h2, .formatted-text h6 + h1
+[class*="__text"] h5 + h2,
+[class*="__text"] h6 + h1
+[class*="__text"] h5 + h2, .formatted-text h1 + h1 .formatted-text h6 + h2,
+[class*="__text"] h1 + h1 .formatted-text h6 + h2, .formatted-text h1 + h1
+[class*="__text"] h6 + h2,
+[class*="__text"] h1 + h1
+[class*="__text"] h6 + h2, .formatted-text h2 + h1 .formatted-text h6 + h2,
+[class*="__text"] h2 + h1 .formatted-text h6 + h2, .formatted-text h2 + h1
+[class*="__text"] h6 + h2,
+[class*="__text"] h2 + h1
+[class*="__text"] h6 + h2, .formatted-text h3 + h1 .formatted-text h6 + h2,
+[class*="__text"] h3 + h1 .formatted-text h6 + h2, .formatted-text h3 + h1
+[class*="__text"] h6 + h2,
+[class*="__text"] h3 + h1
+[class*="__text"] h6 + h2, .formatted-text h4 + h1 .formatted-text h6 + h2,
+[class*="__text"] h4 + h1 .formatted-text h6 + h2, .formatted-text h4 + h1
+[class*="__text"] h6 + h2,
+[class*="__text"] h4 + h1
+[class*="__text"] h6 + h2, .formatted-text h5 + h1 .formatted-text h6 + h2,
+[class*="__text"] h5 + h1 .formatted-text h6 + h2, .formatted-text h5 + h1
+[class*="__text"] h6 + h2,
+[class*="__text"] h5 + h1
+[class*="__text"] h6 + h2, .formatted-text h6 + h1 .formatted-text h6 + h2,
+[class*="__text"] h6 + h1 .formatted-text h6 + h2, .formatted-text h6 + h1
+[class*="__text"] h6 + h2,
+[class*="__text"] h6 + h1
+[class*="__text"] h6 + h2 {
+  margin-top: 1em; }
+
+.formatted-text ol,
+[class*="__text"] ol {
+  margin: 0 0 1em 1.25em; }
+  .formatted-text ol li,
+  [class*="__text"] ol li {
+    list-style-type: disc; }
+
+.formatted-text ol li,
+[class*="__text"] ol li {
+  list-style-type: decimal; }
+
+.formatted-text ul,
+[class*="__text"] ul, .formatted-text ol,
+[class*="__text"] ol {
+  list-style: outside; }
+  .formatted-text ul + p,
+  [class*="__text"] ul + p, .formatted-text ul + h1,
+  [class*="__text"] ul + h1, .formatted-text ul + h2,
+  [class*="__text"] ul + h2, .formatted-text ul + h3,
+  [class*="__text"] ul + h3, .formatted-text ul + h4,
+  [class*="__text"] ul + h4, .formatted-text ul + h5,
+  [class*="__text"] ul + h5, .formatted-text ul + h6,
+  [class*="__text"] ul + h6, .formatted-text ul + table,
+  [class*="__text"] ul + table, .formatted-text ul + div,
+  [class*="__text"] ul + div, .formatted-text ul + blockquote,
+  [class*="__text"] ul + blockquote, .formatted-text ol + p,
+  [class*="__text"] ol + p, .formatted-text ol + h1,
+  [class*="__text"] ol + h1, .formatted-text ol + h2,
+  [class*="__text"] ol + h2, .formatted-text ol + h3,
+  [class*="__text"] ol + h3, .formatted-text ol + h4,
+  [class*="__text"] ol + h4, .formatted-text ol + h5,
+  [class*="__text"] ol + h5, .formatted-text ol + h6,
+  [class*="__text"] ol + h6, .formatted-text ol + table,
+  [class*="__text"] ol + table, .formatted-text ol + div,
+  [class*="__text"] ol + div, .formatted-text ol + blockquote,
+  [class*="__text"] ol + blockquote {
+    margin-top: 1em; }
+
+.formatted-text ul,
+[class*="__text"] ul {
+  margin: 0 0 1em 1.25em; }
+
+.formatted-text div > *:first-child,
+[class*="__text"] div > *:first-child {
+  margin-top: 0; }
+
+.formatted-text div + p,
+[class*="__text"] div + p, .formatted-text div + ul,
+[class*="__text"] div + ul, .formatted-text div + ol,
+[class*="__text"] div + ol, .formatted-text div + h1,
+[class*="__text"] div + h1, .formatted-text div + h2,
+[class*="__text"] div + h2, .formatted-text div + h3,
+[class*="__text"] div + h3, .formatted-text div + h4,
+[class*="__text"] div + h4, .formatted-text div + h5,
+[class*="__text"] div + h5, .formatted-text div + h6,
+[class*="__text"] div + h6, .formatted-text div + table,
+[class*="__text"] div + table, .formatted-text div + div,
+[class*="__text"] div + div, .formatted-text div + blockquote,
+[class*="__text"] div + blockquote {
+  margin-top: 1em; }
+
+.latestnews {
+  margin-bottom: 36px; }
+  .latestnews .latestnews__title {
+    margin-bottom: 36px; }
+    @media screen and (max-width: 480px) {
+      .latestnews .latestnews__title {
+        margin-bottom: 18px; } }
+    .latestnews .latestnews__title strong {
+      font-size: 1.875rem;
+      font-weight: 700;
+      font-family: "Roboto Condensed", sans-serif; }
+  .latestnews .latestnews__more {
+    clear: both;
+    text-align: center;
+    padding-top: 36px; }
+    @media screen and (max-width: 480px) {
+      .latestnews .latestnews__more {
+        padding-top: 18px; } }
+  .latestnews .latestnews__news .news__img {
+    transition: all 0.2s;
+    background: #BF0A0E;
+    display: block;
+    position: relative;
+    text-decoration: none;
+    margin-bottom: 18px; }
+    .latestnews .latestnews__news .news__img img {
+      transition: opacity 0.2s; }
+    .latestnews .latestnews__news .news__img:after {
+      content: "";
+      font-family: FontAwesome;
+      display: inline-block;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      width: 1em;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #FFF;
+      z-index: 499;
+      font-size: 30px;
+      opacity: 0;
+      transition: all 0.2s;
+      -ms-transform: translate(-100%, -50%);
+      transform: translate(-100%, -50%); }
+    .latestnews .latestnews__news .news__img:hover:after {
+      opacity: 1;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+    .latestnews .latestnews__news .news__img:hover img {
+      opacity: .15; }
+    .latestnews .latestnews__news .news__img img {
+      display: block;
+      width: 100%;
+      height: auto; }
+  .latestnews .latestnews__news .news__info h3 {
+    margin-bottom: 9px; }
+    .latestnews .latestnews__news .news__info h3 a {
+      color: #292929;
+      text-decoration: none; }
+      .latestnews .latestnews__news .news__info h3 a:hover {
+        color: #BF0A0E;
+        text-decoration: underline; }
+
+@media screen and (max-width: 480px) {
+  #page__main.page__main--has-sidebar .latestnews .latestnews__news {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 6%; }
+    #page__main.page__main--has-sidebar .latestnews .latestnews__news:nth-of-type(-n + 1) {
+      margin-top: 0; }
+    #page__main.page__main--has-sidebar .latestnews .latestnews__news:nth-of-type(1n+1) {
+      margin-right: 0; }
+    #page__main.page__main--has-sidebar .latestnews .latestnews__news:nth-of-type(1n+2) {
+      clear: both; } }
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  #page__main.page__main--has-sidebar .latestnews .latestnews__news {
+    width: 48.5%;
+    float: left;
+    margin-right: 3%;
+    margin-top: 3%; }
+    #page__main.page__main--has-sidebar .latestnews .latestnews__news:nth-of-type(-n + 2) {
+      margin-top: 0; }
+    #page__main.page__main--has-sidebar .latestnews .latestnews__news:nth-of-type(2n+2) {
+      margin-right: 0; }
+    #page__main.page__main--has-sidebar .latestnews .latestnews__news:nth-of-type(2n+3) {
+      clear: both; } }
+
+@media screen and (min-width: 769px) {
+  #page__main.page__main--has-sidebar .latestnews .latestnews__news {
+    width: 30.63973%;
+    float: left;
+    margin-right: 4.0404%;
+    margin-top: 4.0404%; }
+    #page__main.page__main--has-sidebar .latestnews .latestnews__news:nth-of-type(-n + 3) {
+      margin-top: 0; }
+    #page__main.page__main--has-sidebar .latestnews .latestnews__news:nth-of-type(3n+3) {
+      margin-right: 0; }
+    #page__main.page__main--has-sidebar .latestnews .latestnews__news:nth-of-type(3n+4) {
+      clear: both; } }
+
+@media screen and (max-width: 480px) {
+  #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 6%; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(-n + 1) {
+      margin-top: 0; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(1n+1) {
+      margin-right: 0; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(1n+2) {
+      clear: both; } }
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news {
+    width: 48.5%;
+    float: left;
+    margin-right: 3%;
+    margin-top: 3%; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(-n + 2) {
+      margin-top: 0; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(2n+2) {
+      margin-right: 0; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(2n+3) {
+      clear: both; } }
+
+@media screen and (min-width: 769px) and (max-width: 1036px) {
+  #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news {
+    width: 31.33333%;
+    float: left;
+    margin-right: 3%;
+    margin-top: 3%; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(-n + 3) {
+      margin-top: 0; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(3n+3) {
+      margin-right: 0; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(3n+4) {
+      clear: both; } }
+
+@media screen and (min-width: 1037px) {
+  #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news {
+    width: 22.75%;
+    float: left;
+    margin-right: 3%;
+    margin-top: 3%; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(-n + 4) {
+      margin-top: 0; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(4n+4) {
+      margin-right: 0; }
+    #page__main:not(.page__main--has-sidebar) .latestnews .latestnews__news:nth-of-type(4n+5) {
+      clear: both; } }
+
+.page__main.page__main--has-sidebar .newsoverview__news .news__img {
+  width: 30.63973%;
+  float: left;
+  margin-right: 4.0404%; }
+
+.page__main.page__main--has-sidebar .newsoverview__news .news__info {
+  width: 65.31987%;
+  float: left;
+  margin-right: 0; }
+
+.page__main:not(.page__main--has-sidebar) .newsoverview__news .news__img {
+  width: 31.33333%;
+  float: left;
+  margin-right: 3%; }
+
+.page__main:not(.page__main--has-sidebar) .newsoverview__news .news__info {
+  width: 65.66667%;
+  float: left;
+  margin-right: 0; }
+
+.newsoverview__news {
+  margin-bottom: 36px; }
+  .newsoverview__news:last-of-type {
+    margin-bottom: 0; }
+  .newsoverview__news .news__img {
+    transition: all 0.2s;
+    background: #BF0A0E;
+    display: block;
+    position: relative;
+    text-decoration: none; }
+    .newsoverview__news .news__img img {
+      transition: opacity 0.2s; }
+    .newsoverview__news .news__img:after {
+      content: "";
+      font-family: FontAwesome;
+      display: inline-block;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      width: 1em;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #FFF;
+      z-index: 499;
+      font-size: 30px;
+      opacity: 0;
+      transition: all 0.2s;
+      -ms-transform: translate(-100%, -50%);
+      transform: translate(-100%, -50%); }
+    .newsoverview__news .news__img:hover:after {
+      opacity: 1;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+    .newsoverview__news .news__img:hover img {
+      opacity: .15; }
+    .newsoverview__news .news__img img {
+      display: block;
+      width: 100%;
+      height: auto; }
+  .newsoverview__news .news__info h2 {
+    margin-bottom: 18px; }
+    .newsoverview__news .news__info h2 a {
+      text-decoration: none;
+      color: #292929; }
+      .newsoverview__news .news__info h2 a i {
+        margin-left: 0.25em; }
+      .newsoverview__news .news__info h2 a:hover {
+        color: #BF0A0E;
+        text-decoration: underline; }
+
+@media screen and (max-width: 480px) {
+  .page__main.page__main--has-sidebar .newsoverview__news .news__img,
+  .page__main:not(.page__main--has-sidebar) .newsoverview__news .news__img {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 18px; }
+  .page__main.page__main--has-sidebar .newsoverview__news .news__info,
+  .page__main:not(.page__main--has-sidebar) .newsoverview__news .news__info {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0; } }
+
+body#newspage .page__text {
+  margin-bottom: 0; }
+
+body#newspage .page__images {
+  margin-top: 36px; }
+  @media screen and (max-width: 480px) {
+    body#newspage .page__images {
+      margin-top: 18px; } }
+  body#newspage .page__images a {
+    transition: all 0.2s;
+    background: #BF0A0E;
+    display: block;
+    position: relative;
+    text-decoration: none; }
+    @media screen and (max-width: 480px) {
+      body#newspage .page__images a {
+        width: 48.5%;
+        float: left;
+        margin-right: 3%;
+        margin-top: 3%; }
+        body#newspage .page__images a:nth-of-type(-n + 2) {
+          margin-top: 0; }
+        body#newspage .page__images a:nth-of-type(2n+2) {
+          margin-right: 0; }
+        body#newspage .page__images a:nth-of-type(2n+3) {
+          clear: both; } }
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      body#newspage .page__images a {
+        width: 31.33333%;
+        float: left;
+        margin-right: 3%;
+        margin-top: 3%; }
+        body#newspage .page__images a:nth-of-type(-n + 3) {
+          margin-top: 0; }
+        body#newspage .page__images a:nth-of-type(3n+3) {
+          margin-right: 0; }
+        body#newspage .page__images a:nth-of-type(3n+4) {
+          clear: both; } }
+    @media screen and (min-width: 769px) {
+      body#newspage .page__images a {
+        width: 22.75%;
+        float: left;
+        margin-right: 3%;
+        margin-top: 3%; }
+        body#newspage .page__images a:nth-of-type(-n + 4) {
+          margin-top: 0; }
+        body#newspage .page__images a:nth-of-type(4n+4) {
+          margin-right: 0; }
+        body#newspage .page__images a:nth-of-type(4n+5) {
+          clear: both; } }
+    body#newspage .page__images a img {
+      transition: opacity 0.2s; }
+    body#newspage .page__images a:after {
+      content: "";
+      font-family: FontAwesome;
+      display: inline-block;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      width: 1em;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #FFF;
+      z-index: 499;
+      font-size: 30px;
+      opacity: 0;
+      transition: all 0.2s;
+      -ms-transform: translate(-50%, -100%);
+      transform: translate(-50%, -100%); }
+    body#newspage .page__images a:hover:after {
+      opacity: 1;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+    body#newspage .page__images a:hover img {
+      opacity: .15; }
+    body#newspage .page__images a img {
+      display: block;
+      width: 100%;
+      height: auto; }
+
+body#newspage .page__files {
+  list-style: none;
+  margin: 0;
+  margin-top: 36px; }
+  @media screen and (max-width: 480px) {
+    body#newspage .page__files {
+      margin-top: 18px; } }
+  body#newspage .page__files li {
+    margin-top: 12px;
+    padding: 12px;
+    background: #F3F3F3;
+    border-radius: 3px; }
+    @media screen and (max-width: 480px) {
+      body#newspage .page__files li {
+        width: 100%;
+        float: left;
+        margin-left: 0;
+        margin-right: 0; }
+        body#newspage .page__files li:first-of-type {
+          margin-top: 0; } }
+    @media screen and (min-width: 481px) {
+      body#newspage .page__files li {
+        width: 48.5%;
+        float: left;
+        margin-right: 3%; }
+        body#newspage .page__files li:nth-of-type(-n+2) {
+          margin-top: 0; }
+        body#newspage .page__files li:nth-of-type(2n+2) {
+          margin-right: 0; }
+        body#newspage .page__files li:nth-of-type(2n+3) {
+          clear: both; } }
+    body#newspage .page__files li i {
+      display: block;
+      float: left;
+      font-size: 1.25rem;
+      line-height: 1.5rem; }
+    body#newspage .page__files li span {
+      display: block;
+      float: left;
+      padding-left: 12px;
+      width: calc(100% - 1.25rem); }
+      body#newspage .page__files li span a {
+        color: #292929;
+        text-decoration: none; }
+        body#newspage .page__files li span a:hover {
+          color: #BF0A0E;
+          text-decoration: underline; }
+
+body#newspage main.page__main--has-sidebar .page__images {
+  margin-top: 36px; }
+  @media screen and (max-width: 480px) {
+    body#newspage main.page__main--has-sidebar .page__images a {
+      width: 47.9798%;
+      float: left;
+      margin-right: 4.0404%;
+      margin-top: 4.0404%; }
+      body#newspage main.page__main--has-sidebar .page__images a:nth-of-type(-n + 2) {
+        margin-top: 0; }
+      body#newspage main.page__main--has-sidebar .page__images a:nth-of-type(2n+2) {
+        margin-right: 0; }
+      body#newspage main.page__main--has-sidebar .page__images a:nth-of-type(2n+3) {
+        clear: both; } }
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    body#newspage main.page__main--has-sidebar .page__images a {
+      width: 30.63973%;
+      float: left;
+      margin-right: 4.0404%;
+      margin-top: 4.0404%; }
+      body#newspage main.page__main--has-sidebar .page__images a:nth-of-type(-n + 3) {
+        margin-top: 0; }
+      body#newspage main.page__main--has-sidebar .page__images a:nth-of-type(3n+3) {
+        margin-right: 0; }
+      body#newspage main.page__main--has-sidebar .page__images a:nth-of-type(3n+4) {
+        clear: both; } }
+  @media screen and (min-width: 769px) {
+    body#newspage main.page__main--has-sidebar .page__images a {
+      width: 21.9697%;
+      float: left;
+      margin-right: 4.0404%;
+      margin-top: 4.0404%; }
+      body#newspage main.page__main--has-sidebar .page__images a:nth-of-type(-n + 4) {
+        margin-top: 0; }
+      body#newspage main.page__main--has-sidebar .page__images a:nth-of-type(4n+4) {
+        margin-right: 0; }
+      body#newspage main.page__main--has-sidebar .page__images a:nth-of-type(4n+5) {
+        clear: both; } }
+
+@media screen and (min-width: 769px) {
+  body#newspage main.page__main--has-sidebar .page__files li {
+    width: 47.9798%;
+    margin-right: 4.0404%; }
+    body#newspage main.page__main--has-sidebar .page__files li:nth-of-type(2n+2) {
+      margin-right: 0; } }
+
+body#newspage .page__text + .sections-wrapper,
+body#newspage .page__images + .sections-wrapper,
+body#newspage .page__files + .sections-wrapper {
+  margin-top: 36px; }
+  @media screen and (max-width: 480px) {
+    body#newspage .page__text + .sections-wrapper,
+    body#newspage .page__images + .sections-wrapper,
+    body#newspage .page__files + .sections-wrapper {
+      margin-top: 18px; } }
+
+.loader {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.8); }
+  .loader .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -20px 0 0 -25px;
+    display: block !important;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px; }
+    .loader .spinner > div {
+      display: inline-block;
+      height: 100%;
+      width: 4px;
+      background: #2E4398;
+      animation: sk-stretchdelay 1.2s infinite ease-in-out; }
+    .loader .spinner .rect2 {
+      animation-delay: -1.1s; }
+    .loader .spinner .rect3 {
+      animation-delay: -1.0s; }
+    .loader .spinner .rect4 {
+      animation-delay: -0.9s; }
+    .loader .spinner .rect5 {
+      animation-delay: -0.8s; }
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4); }
+  20% {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1); } }

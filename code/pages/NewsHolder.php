@@ -139,7 +139,7 @@ class NewsHolder_Controller extends Page_Controller {
     $data['NewsCacheKey'] = '';
     
     if($news->first()) {
-      $data['NewsCacheKey'] = max($pagination->getList()->column('LastEdited'));
+      $data['NewsCacheKey'] = 'newsholder_' . $this->NewsPerPage . '_' . max($pagination->getList()->column('LastEdited'));
     }
 
     if($request->isAjax()) {
@@ -158,7 +158,7 @@ class NewsHolder_Controller extends Page_Controller {
         'Created:LessThanOrEqual' => date('Y-m-d H:i:s'),
         'ID' => $this->Children()->column('ID')
       ])
-      ->sort('Created DESC')
+      ->sort('Created DESC, ID')
       ->limit($num);
   }
 
@@ -170,13 +170,13 @@ class NewsHolder_Controller extends Page_Controller {
       $edited = null;
     }
 
-    return $count . '_' . $edited;
+    return 'newsholder_' . $this->NewsPerPage . '_' . $count . '_' . $edited;
   }
 
-  public function Highlight() {
+  public function Highlights($num = 2) {
     return $this->Children()
       ->filter('Highlighted', true)
       ->sort('Created DESC')
-      ->first();
+      ->limit($num);
   }
 }

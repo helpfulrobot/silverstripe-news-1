@@ -1,0 +1,24 @@
+{
+  "name": "silverstripe-news",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bower_components/jquery",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#^4.7.0",
+    "susy": "^2.2.12"
+  },
+  "install": {
+    "path": "bower",
+    "sources": {
+      "font-awesome": [
+        "bower_components/font-awesome/scss/_variables.scss"
+      ],
+      "susy": "bower_components/susy/**"
+    }
+  }
+}

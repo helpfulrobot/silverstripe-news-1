@@ -1,0 +1,279 @@
+@import "_variables";
+
+// - Aspect Ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &:before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  & > *:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// - Convert PX to Rem
+@function px2rem($pixel) {
+  @return $pixel / $fs-root + rem;
+}
+
+// - Fontawesome
+@mixin fontawesome($icon) {
+  content: $icon;
+  font-family: FontAwesome;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 1em;
+  text-align: center;
+}
+
+// - Gallery Layout
+@mixin gallery-layout($columns, $of: 12, $vertical-gutter-multiplicator: 1) {
+  @include span(($of / $columns) of $of);
+  margin-top: gutter($of) * $vertical-gutter-multiplicator;
+
+  &:nth-of-type(-n + #{$columns}) {
+    margin-top: 0;
+  }
+
+  &:nth-of-type(#{$columns}n+#{$columns}) {
+    @include last;
+  }
+
+  &:nth-of-type(#{$columns}n+#{$columns + 1}) {
+    @include break;
+  }
+}
+
+// - Responsive Gallery Layout
+// $grid-conf: (
+//   (null, $bp-s, 1, 2),
+//   ($bp-s, $bp-m, 2),
+//   ($bp-m, null, 3)
+// );
+//
+// .element {
+//   @include resp-gallery-layout($grid-conf);
+// }
+
+@mixin resp-gallery-layout($conf) {
+  @each $state in $conf {
+
+    $multi: 1;
+    @if length($state) == 4 {
+      $multi: nth($state, 4);
+    }
+
+    $of: 12;
+    @if length($state) >= 5 {
+      $of: nth($state, 5);
+    }
+
+    @include breakpoint(nth($state, 1), nth($state, 2)) {
+      @include gallery-layout(nth($state, 3), $of, $multi);
+    }
+  }
+}
+
+@mixin center($position) {
+  position: absolute;
+
+  @if $position == h {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $position == v {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $position == f {
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  } @else if $position == n {
+    position: static;
+    left: initial;
+    top: initial;
+    right: initial;
+    bottom: initial;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+// - Truncate
+@mixin truncate() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// - Responsive Image
+@mixin resp-img() {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+// - Icon Before
+@mixin icon-before($icon: $fa-var-dot, $width: 1em, $margin: 0.25em) {
+  padding-left: $width + $margin;
+
+  &:before {
+    @include fontawesome($icon);
+    width: $width;
+    margin-left: 0 - $width - $margin;
+    float: left;
+    text-align: center;
+    position: relative;
+    top: 3px;
+  }
+}
+
+// - Image Hover
+@mixin img-hover($icon: $fa-var-search-plus, $color: $ac, $origin: top) {
+  transition: all $duration;
+  background: $color;
+  display: block;
+  position: relative;
+  text-decoration: none;
+
+  img {
+    transition: opacity $duration;
+  }
+
+  &:after {
+    @include fontawesome($icon);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #FFF;
+    z-index: 499;
+    font-size: 30px;
+    opacity: 0;
+    transition: all $duration;
+
+    @if $origin == top {
+      transform: translate(-50%, -100%);
+    } @else if $origin == bottom {
+      transform: translate(-50%, 100%);
+    } @else if $origin == left {
+      transform: translate(-100%, -50%);
+    } @else if $origin == right {
+      transform: translate(100%, -50%);
+    } @else {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &:hover {
+    &:after {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+
+    img {
+      opacity: .15;
+    }
+  }
+}
+
+// - Breakpoint
+@mixin breakpoint($from: null, $to: null, $incrementFrom: true) {
+  @if $from != null and $to != null {
+    @if $incrementFrom {
+      $from: $from + 1px;
+    }
+
+    @media screen and (min-width: $from) and (max-width: $to) {
+      @content;
+    }
+  }
+
+  @if $from !=null and $to == null {
+    @if $incrementFrom {
+      $from: $from + 1px;
+    }
+
+    @media screen and (min-width: $from) {
+      @content;
+    }
+  }
+
+  @if $from == null and $to != null {
+    @media screen and (max-width: $to) {
+      @content;
+    }
+  }
+}
+
+// - Responsive Margin
+@mixin resp-margin($direction: bottom, $divider: 1, $bp: $bp-m) {
+  @if $direction == top {
+    margin-top: ($dist) / $divider;
+
+    @include breakpoint(null, $bp) {
+      margin-top: ($dist/2) / $divider;
+    }
+  } @else if $direction == bottom {
+    margin-bottom: ($dist) / $divider;
+
+    @include breakpoint(null, $bp) {
+      margin-bottom: ($dist/2) / $divider;
+    }
+  } @else if $direction == left {
+    margin-left: ($dist) / $divider;
+
+    @include breakpoint(null, $bp) {
+      margin-left: ($dist/2) / $divider;
+    }
+  } @else if $direction == right {
+    margin-right: ($dist) / $divider;
+
+    @include breakpoint(null, $bp) {
+      margin-right: ($dist/2) / $divider;
+    }
+  } @else if $direction == h {
+    margin-right: ($dist) / $divider;
+    margin-left: ($dist) / $divider;
+
+    @include breakpoint(null, $bp) {
+      margin-right: ($dist/2) / $divider;
+      margin-left: ($dist/2) / $divider;
+    }
+  } @else if $direction == v {
+    margin-top: ($dist) / $divider;
+    margin-bottom: ($dist) / $divider;
+
+    @include breakpoint(null, $bp) {
+      margin-top: ($dist/2) / $divider;
+      margin-bottom: ($dist/2) / $divider;
+    }
+  }
+}
+
+// - Responsive Padding
+@mixin resp-padding($direction: bottom) {
+  @if $direction == top {
+    padding-top: $dist;
+
+    @include breakpoint(null, $bp-m) {
+      padding-top: $dist/2;
+    }
+  } @else {
+    padding-bottom: $dist;
+
+    @include breakpoint(null, $bp-m) {
+      padding-bottom: $dist/2;
+    }
+  }
+}

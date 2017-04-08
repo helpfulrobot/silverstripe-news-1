@@ -10,8 +10,8 @@
 
     strong {
       font-size: $fs-h2;
-      font-weight: $fw-bold;
-      font-family: $ff-headline;
+      font-weight: $fw-h-bold;
+      font-family: $ff-h;
     }
   }
 
@@ -27,7 +27,7 @@
 
   .latestnews__news {
     .news__img {
-      @include img-hover($fa-long-arrow-right, $ac, left);
+      @include img-hover($fa-var-angle-right, $ac, left);
       margin-bottom: $dist/2;
 
       img {

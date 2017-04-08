@@ -5,8 +5,11 @@
     </a>
     <div class="news__info">
       <small>$Created.DateGER</small>
-      <h2><a href="$Link" title="$Title">$MenuTitle<i class="fa fa-long-arrow-right"></i></a></h2>
+      <h2><a href="$Link" title="$Title">$MenuTitle</a></h2>
       <p>$Content.Summary(100)</p>
+      <% if not $HideReadOn %>
+        <a href="$Link" title="$Title"><%t NEWS.ReadOn "read on" %> <i class="fa fa-angle-double-right"></i></a>
+      <% end_if %>
     </div>
   </article>
 <% end_cached %>
